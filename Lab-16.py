@@ -18,6 +18,9 @@ def html_for_led(led_number):
 @route('/')
 @route('/<led_number>')
 def index(led_number="n"):
+    if led_number == 'favicon.ico':
+        return  # Skip execution for favicon requests
+   
     if led_number != "n":
         leds[int(led_number)].toggle()
     response = "<script>"
